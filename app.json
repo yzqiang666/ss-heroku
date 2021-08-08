@@ -5,11 +5,11 @@
   "env": {
      "ENCRYPT": {
       "description": "加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5,其它的有（aes-256-cfb,chacha20-ietf-poly1305,salsa20,chacha20-ietf等.）",
-      "value": "rc4-md5"
+      "value": "chacha20-ietf-poly1305"
     },
      "PASSWORD": {
       "description": "shadowsocks的密码，可以使用uuid作为密码（http://www.uuid.online/在线生成）",
-      "value": "5c301bb8-6c77-41a0-a606-4ba11bbab084"
+      "value": "yzqyzq1234"
     },
 
     "VER": {
@@ -24,7 +24,7 @@
 
      "AppName": {
       "description": "请输入最上方填写的App Name，用于生成配置和二维码，如果不想生成输入no",
-      "value": "no"
+      "value": "v2ary-ss"
     },
 
     "QR_Path": {
