@@ -4,12 +4,12 @@
 if [[ -z "${VER}" ]]; then
   VER="latest"
 fi
-echo ${VER}
+
 
 if [[ -z "${PASSWORD}" ]]; then
   PASSWORD="5c301bb8-6c77-41a0-a606-4ba11bbab084"
 fi
-echo ${PASSWORD}
+
 
 if [[ -z "${ENCRYPT}" ]]; then
   ENCRYPT="rc4-md5"
@@ -22,7 +22,7 @@ fi
 if [[ -z "${PLUGIN}" ]]; then
   PLUGIN="v2ray-plugin"
 fi
-echo PLUGIN=${PLUGIN}
+
 
 if [[ -z "${PLUGIN_OPTS}" ]]; then
    PLUGIN_OPTS="server;path=/s233}"
@@ -30,30 +30,29 @@ if [[ -z "${PLUGIN_OPTS}" ]]; then
     PLUGIN_OPTS="obfs=http;obfs-host=www.bing.com;path=/"    
   fi
 fi
-echo PLUGIN=${PLUGIN}
+
 
 if [[ -z "${QR_Path}" ]]; then
   QR_Path="/qr_img"
 fi
-echo ${QR_Path}
 
 
-if [ "$VER" = "latest" ]; then
-  V_VER=`wget -qO- "https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest" | sed -n -r -e 's/.*"tag_name".+?"([vV0-9\.]+?)".*/\1/p'`
-  [[ -z "${V_VER}" ]] && V_VER="v1.3.0"
-else
-  V_VER="v$VER"
-fi
 
-mkdir /v2raybin
-cd /v2raybin
-V2RAY_URL="https://github.com/shadowsocks/v2ray-plugin/releases/download/${V_VER}/v2ray-plugin-linux-amd64-${V_VER}.tar.gz"
-echo ${V2RAY_URL}
-wget --no-check-certificate ${V2RAY_URL}
-tar -zxvf v2ray-plugin-linux-amd64-$V_VER.tar.gz
-rm -rf v2ray-plugin-linux-amd64-$V_VER.tar.gz
-mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
-rm -rf /v2raybin
+#if [ "$VER" = "latest" ]; then
+#  V_VER=`wget -qO- "https://api.github.com/repos/shadowsocks/v2ray-plugin/releases/latest" | sed -n -r -e 's/.*"tag_name".+?"([vV0-9\.]+?)".*/\1/p'`
+#  [[ -z "${V_VER}" ]] && V_VER="v1.3.0"
+#else
+#  V_VER="v$VER"
+#fi
+
+#mkdir /v2raybin
+#cd /v2raybin
+#V2RAY_URL="https://github.com/shadowsocks/v2ray-plugin/releases/download/${V_VER}/v2ray-plugin-linux-amd64-${V_VER}.tar.gz"
+#wget --no-check-certificate ${V2RAY_URL}
+#tar -zxvf v2ray-plugin-linux-amd64-$V_VER.tar.gz
+#rm -rf v2ray-plugin-linux-amd64-$V_VER.tar.gz
+#mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
+#rm -rf /v2raybin
 
 
 
@@ -74,10 +73,9 @@ sed -e "/^#/d"\
     -e "s|\${PLUGIN_OPTS}|${PLUGIN_OPTS}|g"\
     -e "s|\${V2_Path}|${V2_Path}|g"\
     /conf/shadowsocks-libev_config.json >  /etc/shadowsocks-libev/config.json
-echo /etc/shadowsocks-libev/config.json    
-echo ============================================
+
 cat /etc/shadowsocks-libev/config.json
-echo ============================================
+
 
 if [[ -z "${ProxySite}" ]]; then
   s="s/proxy_pass/#proxy_pass/g"
@@ -95,7 +93,6 @@ sed -e "/^#/d"\
     /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
 
 echo /etc/nginx/conf.d/ss.conf
-
 cat /etc/nginx/conf.d/ss.conf
 
 
