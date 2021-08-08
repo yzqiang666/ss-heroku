@@ -17,7 +17,11 @@
        "value": "latest"
      }, 
 
-    
+    "V2_Path": {
+      "description": "Path路径，默认/s233,为了安全你也可以使用uuid替换s233，/不能少。如果开启反代，不要与反代uri重复",
+      "value": "/s233"
+    },
+
     "PLUGIN": {
        "description": "插件类型，可填v2ray_plugin或obfs-local",
        "value": "v2ray_plugin"
