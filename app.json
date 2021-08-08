@@ -23,12 +23,12 @@
     },
 
     "PLUGIN": {
-       "description": "插件类型，可填v2ray_plugin或obfs-local",
-       "value": "v2ray_plugin"
+       "description": "插件类型，可填v2ray-plugin或obfs-local",
+       "value": "v2ray-plugin"
      }, 
     
      "PLUGIN_OPTS": {
-      "description": "插件参数：1. 插件为v2ray_plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-local时，填写obfs=ws;obfs-host=www.bing.com;path=/等",
+      "description": "插件参数：1. 插件为v2ray-plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-local时，填写obfs=ws;obfs-host=www.bing.com;path=/等",
       "value": "server;path=/s233"
     },
 
