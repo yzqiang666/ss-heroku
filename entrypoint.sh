@@ -71,12 +71,14 @@ fi
 sed -e "/^#/d"\
     -e "s/\${PASSWORD}/${PASSWORD}/g"\
     -e "s/\${ENCRYPT}/${ENCRYPT}/g"\
-    -e "s|\${V2_Path}|${V2_Path}|g"\    
-    -e "s|\${PLUGIN}|${PLUGIN}|g"\
-    -e "s|\${PLUGIN_OPTS}|${PLUGIN_OPTS}|g"\    
+    -e "s/\${PLUGIN}/${PLUGIN}/g"\
+    -e "s|\${PLUGIN_OPTS}|${PLUGIN_OPTS}|g"\
+    -e "s|\${V2_Path}|${V2_Path}|g"\
     /conf/shadowsocks-libev_config.json >  /etc/shadowsocks-libev/config.json
-echo /etc/shadowsocks-libev/config.json
+echo /etc/shadowsocks-libev/config.json    
+echo ============================================
 cat /etc/shadowsocks-libev/config.json
+echo ============================================
 
 if [[ -z "${ProxySite}" ]]; then
   s="s/proxy_pass/#proxy_pass/g"
