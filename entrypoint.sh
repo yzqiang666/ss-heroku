@@ -75,13 +75,13 @@ fi
 
 sed -e "/^#/d"\
     -e "s/\${AppName}/${AppName}/g"\
-    -e "s/\${PORT}/${PORT}/g"\
-    -e "s/\${TLS_PORT}/${TLS_PORT}/g"\    
+    -e "s/\${PORT}/${PORT}/g"\  
     -e "s|\${V2_Path}|${V2_Path}|g"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
     /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
 echo /etc/nginx/conf.d/ss.conf
+
 cat /etc/nginx/conf.d/ss.conf
 
 
