@@ -44,6 +44,10 @@ rm -rf v2ray-plugin-linux-amd64-$V_VER.tar.gz
 mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
 rm -rf /v2raybin
 
+
+cp /conf/obfs-local /usr/bin
+chmod +x /usr/bin/obfs-local
+
 cd /wwwroot
 tar xvf wwwroot.tar.gz
 rm -rf wwwroot.tar.gz
