@@ -11,10 +11,10 @@ RUN set -ex\
 RUN curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz 
 RUN gunzip gost.gz 
 RUN echo ============================================
-RUN ls -l *
+RUN ls  *gost*
 RUN echo ============================================
-#RUN mv gost_*_amd64 /usr/local/bin/gost 
-#RUN chmod +x /usr/local/bin/gost
+RUN mv *gost* /usr/local/bin 
+RUN chmod +x /usr/local/bin/*gost*
   
 COPY obfs-server /usr/local/bin
 RUN chmod +x /usr/local/bin/obfs-server
