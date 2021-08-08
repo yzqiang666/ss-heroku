@@ -85,7 +85,10 @@ else
   echo "site: ${ProxySite}"
 fi
 
-echo ${SECOUND_PROXY_ARGUMENT} >tmp.txt
+echo "${SECOND_PROXY_ARGUMENT}" >tmp.txt
+echo ========================================================================
+cat tmp.txt
+echo ========================================================================
 sed -e "/#######OTHER_PROXY#####/r tmp.txt"\
     -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
