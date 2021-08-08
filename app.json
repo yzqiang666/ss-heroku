@@ -24,7 +24,7 @@
 
      "AppName": {
       "description": "请输入最上方填写的App Name，用于生成配置和二维码，如果不想生成输入no",
-      "value": "v2ary-ss"
+      "value": "v2ray-ss"
     },
 
     "QR_Path": {
