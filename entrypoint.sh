@@ -85,14 +85,15 @@ else
   echo "site: ${ProxySite}"
 fi
 
-sed -e "/^#/d"\
+echo ${SECOUND_PROXY_ARGUMENT} >tmp.txt
+sed -e "/#######OTHER_PROXY#####/r tmp.txt"\
+    -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
     -e "s|\${V2_Path}|${V2_Path}|g"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
     /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
-echo ${SECOUND_PROXY_ARGUMENT} >tmp.txt
-sed -i '/#######/r tmp.txt'  /etc/nginx/conf.d/ss.conf
+
 echo /etc/nginx/conf.d/ss.conf
 cat /etc/nginx/conf.d/ss.conf
 
