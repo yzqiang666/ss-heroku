@@ -91,7 +91,8 @@ sed -e "/^#/d"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
     /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
-
+echo ${SECOUND_PROXY_ARGUMENT} >tmp.txt
+sed -i '/#######/r tmp.txt'  /etc/nginx/conf.d/ss.conf
 echo /etc/nginx/conf.d/ss.conf
 cat /etc/nginx/conf.d/ss.conf
 
@@ -107,8 +108,8 @@ else
 fi
 #gost -L=ss+wss://${ENCRYPT}:${PASSWORD}@:2334?host=${AppName}&path=${V2_Path}_gost &
 RUNRUN="gost -L=ss+wss://aes-256-cfb:yzqyzq1234@:2334?host=${AppName}.herokuapp.com&path=/gostgostgost"
-echo ${RUNRUN}
-eval ${RUNRUN} &
+echo ${SECOND_PROXY_COMMAND}
+eval ${SECOND_PROXY_COMMAND} &
 ss-server -c /etc/shadowsocks-libev/config.json &
 rm -rf /etc/nginx/sites-enabled/default
 nginx -g 'daemon off;'
