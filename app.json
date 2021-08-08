@@ -34,7 +34,7 @@
      }, 
     
      "PLUGIN_OPTS": {
-      "description": "插件参数：1. 插件为v2ray-plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-server时，填写obfs=http;failover=127.0.0.1:81等",
+      "description": "插件参数：1. 插件为v2ray-plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-server时，填写obfs=http;failover=127.0.0.1:81;http-method=websocket等",
       "value": "server;path=/s233"
     },
 
