@@ -18,8 +18,8 @@
      }, 
 
     "V2_Path": {
-      "description": "Path路径，默认/s233,为了安全你也可以使用uuid替换s233，/不能少。如果开启反代，不要与反代uri重复",
-      "value": "/s233"
+      "description": "Path路径，默认s233,为了安全你也可以使用uuid替换s233，根路径自动加上，此处开头无需加入/。如果开启反代，不要与反代uri重复",
+      "value": "s233"
     },
 
     "PROXY_LIST": {
