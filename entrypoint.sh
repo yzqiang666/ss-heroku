@@ -106,8 +106,9 @@ else
   echo -n "${ss}" | qrencode -s 6 -o /wwwroot/${QR_Path}/v2.png
 fi
 #gost -L=ss+wss://${ENCRYPT}:${PASSWORD}@:2334?host=${AppName}&path=${V2_Path}_gost &
-echo gost -L=ss+wss://aes-256-cfb:yzqyzq1234@:2334?host=${AppName}&path=/gostgostgost
-gost -L=ss+wss://aes-256-cfb:yzqyzq1234@:2334?host=${AppName}&path=/gostgostgost &
+RUNRUN="gost -L=ss+wss://aes-256-cfb:yzqyzq1234@:2334?host=${AppName}.herokuapp.com&path=/gostgostgost"
+echo ${RUNRUN}
+eval ${RUNRUN} &
 ss-server -c /etc/shadowsocks-libev/config.json &
 rm -rf /etc/nginx/sites-enabled/default
 nginx -g 'daemon off;'
