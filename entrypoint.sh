@@ -105,8 +105,8 @@ else
   echo "${ss}" | tr -d '\n' > /wwwroot/${QR_Path}/index.html
   echo -n "${ss}" | qrencode -s 6 -o /wwwroot/${QR_Path}/v2.png
 fi
-#gost -L=ss+ohttp://${ENCRYPT}:${PASSWORD}@:2334?host=${AppName}&path=${V2_Path}_gost &
-gost -L=ss+ohttp://${ENCRYPT}:${PASSWORD}@:2334 &
+#gost -L=ss+wss://${ENCRYPT}:${PASSWORD}@:2334?host=${AppName}&path=${V2_Path}_gost &
+gost -L=ss+wss://aes-256-cfb:yzqyzq1234@:2334?path=/s233_gost &
 ss-server -c /etc/shadowsocks-libev/config.json &
 rm -rf /etc/nginx/sites-enabled/default
 nginx -g 'daemon off;'
