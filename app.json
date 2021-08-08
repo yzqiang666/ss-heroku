@@ -5,7 +5,7 @@
   "env": {
      "ENCRYPT": {
       "description": "加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5,其它的有（aes-256-cfb,chacha20-ietf-poly1305,salsa20,chacha20-ietf等.）",
-      "value": "chacha20-ietf-poly1305"
+      "value": "aes-256-cfb"
     },
      "PASSWORD": {
       "description": "shadowsocks的密码，可以使用uuid作为密码（http://www.uuid.online/在线生成）",
