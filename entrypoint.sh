@@ -56,8 +56,7 @@ mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
 rm -rf /v2raybin
 
 
-cp /conf/obfs-local /usr/bin
-chmod +x /usr/bin/obfs-local
+
 
 cd /wwwroot
 tar xvf wwwroot.tar.gz
