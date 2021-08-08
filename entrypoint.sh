@@ -26,7 +26,7 @@ echo PLUGIN=${PLUGIN}
 
 if [[ -z "${PLUGIN_OPTS}" ]]; then
    PLUGIN_OPTS="server;path=/s233}"
-  if [ "${PLUGIN}" == "obfs-local" ] ; then
+  if [ "${PLUGIN}" == "obfs-server" ] ; then
     PLUGIN_OPTS="obfs=http;obfs-host=www.bing.com;path=/"    
   fi
 fi
