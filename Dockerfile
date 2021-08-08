@@ -25,13 +25,6 @@ RUN mkdir /v2raybin\
 && cd /\
 && rm -rf /v2raybin
     
-#RUN apt install -y --no-install-recommends git build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake
-#RUN git clone https://github.com/shadowsocks/simple-obfs.git\
-#&& cd simple-obfs\
-#&& git submodule update --init --recursive\
-#&& ./autogen.sh\
-#&& ./configure && make\
-#&& make install
 
 RUN curl -sL https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz -o gost.gz && gunzip gost.gz \
   && mv gost_*_amd64 /usr/local/bin/gost && chmod +x /usr/local/bin/gost
