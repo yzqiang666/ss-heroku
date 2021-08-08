@@ -7,13 +7,8 @@ RUN set -ex\
     && apt install -y shadowsocks-libev\
     && apt install -y nginx\
     && apt autoremove -y\
-    && apt install --no-install-recommends -y build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake git\
-    && mkdir simple-obfs\
-    && cd simple-obfs\
-    && #git submodule update --init --recursive\
-    && #./autogen.sh\
-    && #./configure && make\
-    && #make install
+    && apt install  -y build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake git
+
     
 
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
