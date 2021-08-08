@@ -6,8 +6,8 @@ RUN set -ex\
     && apt install -y wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y nginx\
-    && apt install --no-install-recommends -y build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake git\
     && apt autoremove -y\
+    && apt install --no-install-recommends -y build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake git\
     && cd simple-obfs\
     && git submodule update --init --recursive\
     && ./autogen.sh\
