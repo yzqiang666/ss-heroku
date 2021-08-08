@@ -10,10 +10,12 @@ RUN set -ex\
 
 RUN apt install -y build-essential\
     && apt install -y autoconf\
-    && apt install -y wlibtool libssl-dev libpcre3-dev libev-dev\
+    && apt install -y libssl-dev libpcre3-dev libev-dev\
     && apt install -y asciidoc xmlto automake\
     && apt install -y git
     
+    
+#####    wlibtool
 ###RUN apt install  -y build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake git
 
     
