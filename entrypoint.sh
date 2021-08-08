@@ -15,6 +15,9 @@ if [[ -z "${ENCRYPT}" ]]; then
   ENCRYPT="rc4-md5"
 fi
 
+if [[ -z "${V2_Path}" ]]; then
+  V2_Path="/s233"
+fi
 
 if [[ -z "${PLUGIN}" ]]; then
   PLUGIN="v2ray-plugin"
@@ -68,6 +71,7 @@ fi
 sed -e "/^#/d"\
     -e "s/\${PASSWORD}/${PASSWORD}/g"\
     -e "s/\${ENCRYPT}/${ENCRYPT}/g"\
+    -e "s|\${V2_Path}|${V2_Path}|g"\    
     -e "s|\${PLUGIN}|${PLUGIN}|g"\
     -e "s|\${PLUGIN_OPTS}|${PLUGIN_OPTS}|g"\    
     /conf/shadowsocks-libev_config.json >  /etc/shadowsocks-libev/config.json
