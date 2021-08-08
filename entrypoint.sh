@@ -16,10 +16,18 @@ if [[ -z "${ENCRYPT}" ]]; then
 fi
 
 
-if [[ -z "${V2_Path}" ]]; then
-  V2_Path="/s233"
+if [[ -z "${PLUGIN}" ]]; then
+  PLUGIN="v2ray-plugin"
 fi
-echo ${V2_Path}
+echo PLUGIN=${PLUGIN}
+
+if [[ -z "${PLUGIN_OPTS}" ]]; then
+   PLUGIN_OPTS="server;path=/s233}"
+  if [ "${PLUGIN}" == "obfs-local" ] ; then
+    PLUGIN_OPTS="obfs=http;obfs-host=www.bing.com;path=/"    
+  fi
+fi
+echo PLUGIN=${PLUGIN}
 
 if [[ -z "${QR_Path}" ]]; then
   QR_Path="/qr_img"
@@ -60,7 +68,8 @@ fi
 sed -e "/^#/d"\
     -e "s/\${PASSWORD}/${PASSWORD}/g"\
     -e "s/\${ENCRYPT}/${ENCRYPT}/g"\
-    -e "s|\${V2_Path}|${V2_Path}|g"\
+    -e "s|\${PLUGIN}|${PLUGIN}|g"\
+    -e "s|\${PLUGIN_OPTS}|${PLUGIN_OPTS}|g"\    
     /conf/shadowsocks-libev_config.json >  /etc/shadowsocks-libev/config.json
 echo /etc/shadowsocks-libev/config.json
 cat /etc/shadowsocks-libev/config.json
@@ -79,8 +88,6 @@ sed -e "/^#/d"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
     /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
-
-sed -i "s/\${TLS_PORT}/${TLS_PORT}/g"  /etc/nginx/conf.d/ss.conf
 
 echo /etc/nginx/conf.d/ss.conf
 
