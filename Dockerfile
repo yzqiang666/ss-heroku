@@ -3,7 +3,7 @@ FROM debian:sid
 RUN set -ex\
     && apt update -y \
     && apt upgrade -y \
-    && apt install -y wget unzip qrencode\
+    && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y nginx\
     && apt autoremove -y
@@ -33,4 +33,6 @@ RUN mkdir /v2raybin\
 #&& ./configure && make\
 #&& make install
 
+RUN curl -sL https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz -o gost.gz && gunzip gost.gz \
+  && mv gost_*_amd64 /usr/local/bin/gost && chmod +x /usr/local/bin/gost
 CMD /entrypoint.sh
