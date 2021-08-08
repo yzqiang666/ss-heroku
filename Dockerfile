@@ -8,8 +8,10 @@ RUN set -ex\
     && apt install -y nginx\
     && apt autoremove -y
 
-RUN curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz  && gunzip gost.gz \
-  && mv gost_*_amd64 /usr/local/bin/gost && chmod +x /usr/local/bin/gost
+RUN curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz 
+RUN gunzip gost.gz 
+RUN mv gost_*_amd64 /usr/local/bin/gost 
+RUN chmod +x /usr/local/bin/gost
   
 COPY obfs-server /usr/local/bin
 RUN chmod +x /usr/local/bin/obfs-server
