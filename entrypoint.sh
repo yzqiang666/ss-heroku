@@ -44,14 +44,10 @@ rm -rf v2ray-plugin-linux-amd64-$V_VER.tar.gz
 mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
 rm -rf /v2raybin
 
-
-cp /conf/obfs-local /usr/bin
-chmod +x /usr/bin/obfs-local
-
 cd /wwwroot
 tar xvf wwwroot.tar.gz
 rm -rf wwwroot.tar.gz
-ls -l /wwwroot
+
 if [ ! -d /etc/shadowsocks-libev ]; then  
   mkdir /etc/shadowsocks-libev
 fi
@@ -62,17 +58,8 @@ sed -e "/^#/d"\
     -e "s/\${ENCRYPT}/${ENCRYPT}/g"\
     -e "s|\${V2_Path}|${V2_Path}|g"\
     /conf/shadowsocks-libev_config.json >  /etc/shadowsocks-libev/config.json
-    
-    
-sed -e "/^#/d"\
-    -e "s/\${PASSWORD}/${PASSWORD}/g"\
-    -e "s/\${ENCRYPT}/${ENCRYPT}/g"\
-    -e "s|\${V2_Path}|${V2_Path}|g"\
-    /conf/ss1.json >  /etc/shadowsocks-libev/ss1.json
-    
 echo /etc/shadowsocks-libev/config.json
 cat /etc/shadowsocks-libev/config.json
-cat /etc/shadowsocks-libev/ss1.json
 
 if [[ -z "${ProxySite}" ]]; then
   s="s/proxy_pass/#proxy_pass/g"
@@ -83,9 +70,7 @@ else
 fi
 
 sed -e "/^#/d"\
-    -e "s/\${AppName}/${AppName}/g"\
     -e "s/\${PORT}/${PORT}/g"\
-    -e "s/\${TLS_PORT}/${TLS_PORT}/g"\    
     -e "s|\${V2_Path}|${V2_Path}|g"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
@@ -105,6 +90,5 @@ else
 fi
 
 ss-server -c /etc/shadowsocks-libev/config.json &
-#ss-server -c /etc/shadowsocks-libev/ss1.json &
 rm -rf /etc/nginx/sites-enabled/default
 nginx -g 'daemon off;'
