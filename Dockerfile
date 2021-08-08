@@ -29,6 +29,6 @@ RUN git clone https://github.com/shadowsocks/simple-obfs.git\
 && git submodule update --init --recursive\
 && ./autogen.sh\
 && ./configure && make\
-&& sudo make install
+&& make install
 
 CMD /entrypoint.sh
