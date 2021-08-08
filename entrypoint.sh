@@ -79,6 +79,9 @@ sed -e "/^#/d"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
     /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
+
+sed -i "s/\${TLS_PORT}/${TLS_PORT}/g"  /etc/nginx/conf.d/ss.conf
+
 echo /etc/nginx/conf.d/ss.conf
 
 cat /etc/nginx/conf.d/ss.conf
