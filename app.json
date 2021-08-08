@@ -22,6 +22,12 @@
       "value": "/s233"
     },
 
+    "PROXY_LIST": {
+      "description": "反向代理列表",
+      "value": "www.google.com\r\nwww.youtube.com",
+      "required": "false"
+    },
+
     "PLUGIN": {
        "description": "插件类型，可填v2ray-plugin或obfs-local",
        "value": "v2ray-plugin"
