@@ -8,6 +8,13 @@ RUN set -ex\
     && apt install -y nginx\
     && apt autoremove -y
 
+
+COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
+COPY conf/ /conf
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
+
 RUN apt install -y build-essential\
     && apt install -y autoconf\
     && apt install -y libssl-dev libpcre3-dev libev-dev\
@@ -18,12 +25,11 @@ RUN apt install -y build-essential\
 #####    wlibtool
 ###RUN apt install  -y build-essential autoconf libtool libssl-dev libpcre3-dev libev-dev asciidoc xmlto automake git
 
-    
-
-COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
-COPY conf/ /conf
-COPY entrypoint.sh /entrypoint.sh
-
-RUN chmod +x /entrypoint.sh
+git clone https://github.com/shadowsocks/simple-obfs.git
+cd simple-obfs
+git submodule update --init --recursive
+./autogen.sh
+./configure && make
+sudo make install
 
 CMD /entrypoint.sh
