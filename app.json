@@ -49,14 +49,13 @@
      },
 
      "ProxySite": {
-      "description": "反代一个网站，例如：www.ietf.org，不填写表示使用本地静态网页文件。",
+      "description": "域名用于反代一个网站，例如：www.google.com，不填写表示使用本地静态网页文件。",
       "value": "www.google.com"
     },
 
-     "SECOND_PROXY_ARGUMENT": {
-      "description": "第二个代理参数，请先调试好参数，后粘贴进来。",
-      "value": "location = /gostgostgost {\r\n  proxy_pass http://127.0.0.1:2334;\r\n}",
-      "required": "false"
+     "NGINX_CONF_URL": {
+      "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空",
+      "value": "https://gitee.com/yzqiang/mydoc/raw/master/nginx.conf"
     },
      "SECOND_PROXY_COMMAND": {
       "description": "第二个代理命令，请先调试好参数，后粘贴进来。",
