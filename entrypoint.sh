@@ -86,7 +86,7 @@ else
 fi
 
 [ ! "${NGINX_CONF_URL}" == "" ] && wget --no-check-certificate  -O download.tmp "$NGINX_CONF_URL"
-[ ! -s download.tmp ] && cp /conf/nginx_ss.conf ownload.tmp
+[ ! -s download.tmp ] && [ ! "`grep "server {" download.tmp`" == "" ] && cp /conf/nginx_ss.conf ownload.tmp
 
 sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
