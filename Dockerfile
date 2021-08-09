@@ -1,8 +1,8 @@
 FROM debian:sid
-COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
-COPY obfs-server /usr/local/bin
-COPY conf/ /conf
-COPY entrypoint.sh /entrypoint.sh\  
+RUN cp wwwroot.tar.gz /wwwroot/wwwroot.tar.gz\
+    && cp obfs-server /usr/local/bin\
+    && cp conf/ /conf\
+    && cpentrypoint.sh /entrypoint.sh 
 RUN set -ex\  
     && apt update -y \
     && apt upgrade -y \
@@ -24,4 +24,8 @@ RUN set -ex\
     && mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin\
     && cd /\
     && rm -rf /v2raybin
+    
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+    
 CMD /entrypoint.sh
