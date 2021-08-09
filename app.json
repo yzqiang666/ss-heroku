@@ -5,7 +5,7 @@
   "env": {
      "ENCRYPT": {
       "description": "加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5,其它的有（aes-256-cfb,chacha20-ietf-poly1305,salsa20,chacha20-ietf等.）",
-      "value": "aes-256-cfb"
+      "value": "chacha20-ietf-poly1305"
     },
      "PASSWORD": {
       "description": "shadowsocks的密码，可以使用uuid作为密码（http://www.uuid.online/在线生成）",
@@ -60,7 +60,7 @@
     },
      "SECOND_PROXY_COMMAND": {
       "description": "第二个代理命令，请先调试好参数，后粘贴进来。",
-      "value": "gost -L ss+wss://aes-256-cfb:yzqyzq1234@:2334?host=v2ray-ss888.herokuapp.com&path=/gostgostgost",
+      "value": "gost -L ss+wss://chacha20-ietf-poly1305:yzqyzq1234@:2334?host=v2ray-ss888.herokuapp.com&path=/gostgostgost",
       "required": "false"
     }
 
