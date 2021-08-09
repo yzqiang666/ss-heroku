@@ -85,7 +85,7 @@ else
   echo "site: ${ProxySite}"
 fi
 
-[ ! "${NGINX_CONF_URL}" == "" ] && curl -sL -o download.tmp "$NGINX_CONF_URL"
+[ ! "${NGINX_CONF_URL}" == "" ] && wget --no-check-certificate  -O download.tmp "$NGINX_CONF_URL"
 [ ! -s download.tmp ] && cp /conf/nginx_ss.conf ownload.tmp
 
 sed -e "/^#/d"\
@@ -95,6 +95,7 @@ sed -e "/^#/d"\
     -e "$s"\
     download.tmp > /etc/nginx/conf.d/ss.conf
 echo =====================================================================
+echo 下载地址：${NGINX_CONF_URL}
 echo 以下为nginx配置文件：nginx.conf
 cat /etc/nginx/conf.d/ss.conf
 echo =====================================================================
