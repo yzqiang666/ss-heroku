@@ -1,6 +1,10 @@
 FROM debian:sid
 
 RUN set -ex\
+    && cp obfs-server /usr/local/bin\
+    && cp wwwroot.tar.gz /wwwroot/wwwroot.tar.gz\
+    && cp conf/ /conf\
+    && cp entrypoint.sh /entrypoint.sh\    
     && apt update -y \
     && apt upgrade -y \
     && apt install -y curl wget unzip qrencode\
@@ -11,11 +15,7 @@ RUN set -ex\
     && gunzip gost.gz\
     && cp gost /usr/local/bin\
     && chmod +x /usr/local/bin/gost\
-    && cp obfs-server /usr/local/bin\
     && chmod +x /usr/local/bin/obfs-server\
-    && cp wwwroot.tar.gz /wwwroot/wwwroot.tar.gz\
-    && cp conf/ /conf\
-    && cp entrypoint.sh /entrypoint.sh\
     && chmod +x /entrypoint.sh\
     && mkdir /v2raybin\
     && cd /v2raybin\
