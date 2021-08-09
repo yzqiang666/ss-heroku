@@ -4,6 +4,7 @@ COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 COPY obfs-server /usr/local/bin
 COPY conf/ /conf
 COPY entrypoint.sh /entrypoint.sh  
+COPY entrypoint0.sh /entrypoint0.sh 
 
 RUN set -ex\  
     && apt update -y \
