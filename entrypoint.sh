@@ -85,21 +85,19 @@ else
   echo "site: ${ProxySite}"
 fi
 
-echo "${SECOND_PROXY_ARGUMENT}" >tmp.txt
-echo ========================================================================
-cat tmp.txt
-echo ========================================================================
-sed -e "/#######OTHER_PROXY#####/r tmp.txt"\
-    -e "/^#/d"\
+[ ! "${NGINX_CONF_URL}" == "" ] && curl -sL -o download.tmp "$NGINX_CONF_URL"
+[ ! -s download.tmp ] && cp /conf/nginx_ss.conf ownload.tmp
+
+sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
     -e "s|\${V2_Path}|${V2_Path}|g"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
-    /conf/nginx_ss.conf > /etc/nginx/conf.d/ss.conf
-
-echo /etc/nginx/conf.d/ss.conf
+    download.tmp > /etc/nginx/conf.d/ss.conf
+echo =====================================================================
+echo 以下为nginx配置文件：nginx.conf
 cat /etc/nginx/conf.d/ss.conf
-
+echo =====================================================================
 
 if [ "$AppName" = "no" ]; then
   echo "不生成二维码"
