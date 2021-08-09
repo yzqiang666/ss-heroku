@@ -85,8 +85,13 @@ else
   echo "site: ${ProxySite}"
 fi
 
-[ ! "${NGINX_CONF_URL}" == "" ] && wget --no-check-certificate  -O download.tmp "$NGINX_CONF_URL"
-[ ! -s download.tmp ] && [ ! "`grep "server {" download.tmp`" == "" ] && cp /conf/nginx_ss.conf ownload.tmp
+[ ! "${NGINX_CONF_URL}" == "" ] && wget -s --no-check-certificate  -O download.tmp "$NGINX_CONF_URL"
+if [ -s download.tmp ] || [ ! "`grep \"server {\" download.tmp`" == "" ] ; then
+ echo "Download from url ${NGINX_CONF_URL} file success." 
+else
+  cp /conf/nginx_ss.conf ownload.tmp
+  echo "Use default nginx.conf."
+fi
 
 sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
