@@ -1,10 +1,9 @@
 FROM debian:sid
-
-RUN set -ex\
-    && cp obfs-server /usr/local/bin\
-    && cp wwwroot.tar.gz /wwwroot/wwwroot.tar.gz\
-    && cp conf/ /conf\
-    && cp entrypoint.sh /entrypoint.sh\    
+COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
+COPY obfs-server /usr/local/bin
+COPY conf/ /conf
+COPY entrypoint.sh /entrypoint.sh\  
+RUN set -ex\  
     && apt update -y \
     && apt upgrade -y \
     && apt install -y curl wget unzip qrencode\
