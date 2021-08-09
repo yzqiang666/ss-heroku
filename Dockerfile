@@ -8,7 +8,7 @@ RUN set -ex\
     && apt autoremove -y\
     && curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz\
     && gunzip gost.gz\
-    && chmod +x gost
+    && chmod +x gost\
     && cp gost /usr/local/bin\
     && chmod +x /usr/local/bin/gost\
     && chmod +x /usr/local/bin/obfs-server\
