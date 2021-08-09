@@ -1,8 +1,4 @@
 FROM debian:sid
-COPY wwroot.tar.gz /wwwroot/wwwroot.tar.gz
-COPY obfs-server /usr/local/bin
-COPY conf/ /conf
-COPY entrypoint.sh /entrypoint.sh 
 RUN set -ex\  
     && apt update -y \
     && apt upgrade -y \
@@ -12,6 +8,7 @@ RUN set -ex\
     && apt autoremove -y\
     && curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz\
     && gunzip gost.gz\
+    && chmod +x gost
     && cp gost /usr/local/bin\
     && chmod +x /usr/local/bin/gost\
     && chmod +x /usr/local/bin/obfs-server\
@@ -24,6 +21,10 @@ RUN set -ex\
     && mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin\
     && cd /\
     && rm -rf /v2raybin\
-    && chmod +x /entrypoint.sh
+COPY wwroot.tar.gz /wwwroot/wwwroot.tar.gz
+COPY obfs-server /usr/local/bin
+COPY conf/ /conf
+COPY entrypoint.sh /entrypoint.sh  
+RUN chmod +x /entrypoint.sh
     
 CMD /entrypoint.sh
