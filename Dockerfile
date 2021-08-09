@@ -12,6 +12,7 @@ RUN set -ex\
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y nginx\
+    && apt install -y davfs2\
     && apt autoremove -y\
     && curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz\
     && gunzip gost.gz\
@@ -28,6 +29,11 @@ RUN set -ex\
     && mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin\
     && cd /\
     && rm -rf /v2raybin\
+    && wget --no-check-certificate "https://downloads.rclone.org/rclone-current-linux-amd64.zip"\
+    && unzip rclone-current-linux-amd64.zip rclone-*/rclone\
+    && mv rclone-*/rclone /usr/bin\
+    && chmod +x /usr/bin/rclone\
+    && rm -rf rclone*\
     && chmod +x /entrypoint.sh
     
 CMD /entrypoint.sh
