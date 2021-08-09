@@ -54,9 +54,17 @@
     },
 
      "NGINX_CONF_URL": {
-      "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空",
-      "value": "https://gitee.com/yzqiang/mydoc/raw/master/nginx.conf"
+      "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空",      
+      "value": "https://gitee.com/yzqiang/mydoc/raw/master/nginx.conf",
+      "required": "false"       
     },
+
+    "ENTRYPOINT_URL": {
+      "description": "提供启动运行脚本文件下载链接，用于覆盖默认的启动脚本，可以为空",
+      "value": "https://gitee.com/yzqiang/mydoc/raw/master/entrypoint0.sh",
+      "required": "false"      
+    },
+    
      "SECOND_PROXY_COMMAND": {
       "description": "第二个代理命令，请先调试好参数，后粘贴进来。",
       "value": "gost -L ss+wss://chacha20-ietf-poly1305:yzqyzq1234@:2334?host=v2ray-ss888.herokuapp.com&path=/gostgostgost",
