@@ -121,4 +121,4 @@ echo ${SECOND_PROXY_COMMAND}
 eval ${SECOND_PROXY_COMMAND} &
 ss-server -c /etc/shadowsocks-libev/config.json &
 rm -rf /etc/nginx/sites-enabled/default
-nginx -g 'daemon off;'
+####nginx -g 'daemon off;'
