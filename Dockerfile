@@ -23,7 +23,7 @@ RUN set -ex\
     && rm -rf v2ray-plugin-linux-amd64-v1.3.1.tar.gz\
     && mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin\
     && cd /\
-    && rm -rf /v2raybin
+    && rm -rf /v2raybin\
     && chmod +x /entrypoint.sh
     
 CMD /entrypoint.sh
