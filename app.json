@@ -55,13 +55,13 @@
 
      "NGINX_CONF_URL": {
       "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空",      
-      "value": "https://gitee.com/yzqiang/mydoc/raw/master/nginx.conf",
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/nginx.conf",
       "required": "false"       
     },
 
     "ENTRYPOINT_URL": {
       "description": "提供启动运行脚本文件下载链接，用于覆盖默认的启动脚本，可以为空",
-      "value": "https://gitee.com/yzqiang/mydoc/raw/master/entrypoint0.sh",
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/entrypoint0.sh",
       "required": "false"      
     },
     
