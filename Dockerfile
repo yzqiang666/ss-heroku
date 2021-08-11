@@ -36,7 +36,8 @@ RUN set -ex\
     && mv rclone-*/rclone /usr/bin\
     && chmod +x /usr/bin/rclone\
     && rm -rf rclone*\
-    && chmod +x /entrypoint.sh
+    && chmod 777 /entrypoint*.sh
+    && chown root:root /entrypoint*.sh
     
 CMD /entrypoint.sh
 
