@@ -24,6 +24,9 @@ cat /etc/nginx/nginx.conf
 echo ===========================================================
 cat /etc/nginx/conf.d/*
 nginx -g 'daemon off;'
+echo "Finsh ungix"
+echo ===========================================================
+
 
 
 
