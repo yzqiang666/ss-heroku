@@ -12,5 +12,8 @@ chmod +x /entrypoint0.sh
 /entrypoint0.sh
 
 ################最后一条监听命令不能放入子进程中。
-nginx -g 'daemon off;'
+##nginx -g 'daemon off;'
+RUNSTR="nginx -g 'daemon off;'"
+${RUNSTR}
+
 
