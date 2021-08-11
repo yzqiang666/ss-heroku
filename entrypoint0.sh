@@ -1,4 +1,6 @@
 #!/bin/bash
+###  第一行的内容必不可少
+
 
 #v2ray-plugin版本
 if [[ -z "${VER}" ]]; then
@@ -95,14 +97,16 @@ fi
 
 sed -e "/^#/d"\
     -e "s/\${PORT}/${PORT}/g"\
-    -e "s/\${AppName}/${AppName}/g"\
     -e "s|\${V2_Path}|${V2_Path}|g"\
     -e "s|\${QR_Path}|${QR_Path}|g"\
     -e "$s"\
     download.tmp > /etc/nginx/conf.d/ss.conf
 echo =====================================================================
 echo 下载地址：${NGINX_CONF_URL}
-echo 以下为nginx配置文件：nginx.conf
+echo 以下为nginx配置文件：/etc/nginx/nginx.conf
+cat /etc/nginx/nginx.conf
+echo =====================================================================
+echo 以下为ss配置文件：/etc/nginx/conf.d/ss.conf
 cat /etc/nginx/conf.d/ss.conf
 echo =====================================================================
 
@@ -120,5 +124,7 @@ RUNRUN="gost -L=ss+wss://aes-256-cfb:yzqyzq1234@:2334?host=${AppName}.herokuapp.
 echo ${SECOND_PROXY_COMMAND}
 eval ${SECOND_PROXY_COMMAND} &
 ss-server -c /etc/shadowsocks-libev/config.json &
-rm -rf /etc/nginx/sites-enabled/default
-####nginx -g 'daemon off;'
+rm -rf /etc/nginx/sites-enabled/*
+cat /etc/nginx/sites-enabled/*
+cat /etc/nginx/nginx.conf
+echo "nginx -g 'daemon off;'"
