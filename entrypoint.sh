@@ -3,7 +3,7 @@
 
 [ ! "${ENTRYPOINT_URL}" == "" ] && wget --no-check-certificate  -O /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
 sleep 3
-if [ -s /tmp/entrypoint.tmp ]  ; then
+if [ -s /tmp/entrypoint1.sh ]  ; then
    echo "Download from url ${ENTRYPOINT_URL} file success." 
    tail -n 10 /tmp/entrypoint1.sh
    chmod +x /tmp/entrypoint1.sh
