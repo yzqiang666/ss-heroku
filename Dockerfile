@@ -13,7 +13,6 @@ RUN set -ex\
     && apt install -y shadowsocks-libev\
     && apt install -y nginx\
     && apt install -y libnginx-mod-http-subs-filter\
-    && apt install -y git\
     && apt install -y davfs2\
     && apt install -y cifs-utils\
     && apt autoremove -y\
