@@ -5,7 +5,8 @@
 sleep 3
 if [ -s /entrypoint.tmp ]  ; then
    echo "Download from url ${ENTRYPOINT_URL} file success." 
-   mv /entrypoint.tmp /entrypoint0.sh 
+   cat /entrypoint.tmp
+   cat  /entrypoint.tmp >/entrypoint0.sh 
    echo "################# USE NEW SHELL ##############" >>/entrypoint0.sh
 fi
 chmod +x /entrypoint0.sh
