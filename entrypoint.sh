@@ -1,16 +1,17 @@
 #!/bin/bash
 
 
-[ ! "${ENTRYPOINT_URL}" == "" ] && wget --no-check-certificate  -O /entrypoint.tmp "$ENTRYPOINT_URL"
+[ ! "${ENTRYPOINT_URL}" == "" ] && wget --no-check-certificate  -O /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
 sleep 3
-if [ -s /entrypoint.tmp ]  ; then
+if [ -s /tmp/entrypoint.tmp ]  ; then
    echo "Download from url ${ENTRYPOINT_URL} file success." 
-   cat /entrypoint.tmp
-   cat  /entrypoint.tmp >/entrypoint0.sh 
-   echo "################# USE NEW SHELL ##############" >>/entrypoint0.sh
+   tail -n 10 /tmp/entrypoint1.sh
+   chmod +x /tmp/entrypoint1.sh
+   /tmp/entrypoint1.sh
+else
+  chmod +x /entrypoint0.sh
+  /entrypoint0.sh
 fi
-chmod +x /entrypoint0.sh
-/entrypoint0.sh
 
 ################最后一条监听命令不能放入子进程中。
 nginx -g 'daemon off;'
