@@ -37,7 +37,8 @@ RUN set -ex\
     && chmod +x /usr/bin/rclone\
     && rm -rf rclone*\
     && chmod 777 /entrypoint*.sh\
-    && chown root:root /entrypoint*.sh
+    && chown root:root /entrypoint*.sh\
+    && sed -i '/user www-data/d' /etc/nginx/nginx.conf
     
 CMD /entrypoint.sh
 
