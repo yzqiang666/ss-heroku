@@ -9,6 +9,7 @@ COPY entrypoint0.sh /entrypoint0.sh
 RUN set -ex\  
     && apt update -y \
     && apt upgrade -y \
+    && apt install -y apt-utils\
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y nginx\
