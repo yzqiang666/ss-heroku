@@ -120,5 +120,5 @@ rm -rf /etc/nginx/sites-enabled/* >/devnull 2>/dev/null
 #echo "nginx -g 'daemon off;'"
 ss-server -c /etc/shadowsocks-libev/config.json --plugin ${PLUGIN} --plugin-opts ${PLUGIN_OPTS} &
 echo "Use DEFAULT entrypoint0.sh "
-cat /tmp/nginx.conf
+#cat /tmp/nginx.conf
 exit 0
