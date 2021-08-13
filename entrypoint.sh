@@ -2,10 +2,10 @@
 
 cp /etc/nginx/nginx.conf /tmp/nginx.conf
 if [ ! "${ENTRYPOINT_URL}" == "" ] ; then
-  curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
 
   if [ $? == 0 ]  ; then
     echo "Download from url ${ENTRYPOINT_URL} file success." 
