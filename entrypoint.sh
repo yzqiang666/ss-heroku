@@ -2,7 +2,8 @@
 
 
 [ ! "${ENTRYPOINT_URL}" == "" ] && curl -sL -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-if [ -s /tmp/entrypoint1.sh ] && [ ! "`grep \"#!/bin/bash\"`" == "" ]  ; then
+#if [ -s /tmp/entrypoint1.sh ] && [ ! "`grep \"#!/bin/bash\"`" == "" ]  ; then
+if [ -s /tmp/entrypoint1.sh ]  ; then
    echo "Download from url ${ENTRYPOINT_URL} file success." 
    echo "Use entrypoint1.sh from GITHUB"
 #   tail -n 10 /tmp/entrypoint1.sh
