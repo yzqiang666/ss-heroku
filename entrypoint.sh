@@ -14,12 +14,12 @@ else
 fi
 
 echo ################最后一条监听命令不能放入子进程中。
-
-RUNRUN="nginx -g 'daemon off;'"
-echo "${RUNRUN}"
-eval "${RUNRUN}"
-echo "Finsh ungix"
-echo ===========================================================
+nginx -g 'daemon off;'
+#RUNRUN="nginx -g 'daemon off;'"
+#echo "${RUNRUN}"
+#eval "${RUNRUN}"
+#echo "Finsh ungix"
+#echo ===========================================================
 
 
 
