@@ -1,15 +1,16 @@
 #!/bin/bash
 
 
-[ ! "${ENTRYPOINT_URL}" == "" ] && wget --no-check-certificate  -O /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-sleep 3
-if [ -s /tmp/entrypoint1.sh ]  ; then
+[ ! "${ENTRYPOINT_URL}" == "" ] && curl -sL -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+if [ -s /tmp/entrypoint1.sh ] && [ ! "`grep \"#!/bin/bash\"`" == "" ]  ; then
    echo "Download from url ${ENTRYPOINT_URL} file success." 
-   tail -n 10 /tmp/entrypoint1.sh
+   echo "Use entrypoint1.sh from GITHUB"
+#   tail -n 10 /tmp/entrypoint1.sh
    chmod +x /tmp/entrypoint1.sh
    /tmp/entrypoint1.sh
 else
   chmod +x /entrypoint0.sh
+  echo "Use default entrypoint0.sh"
   /entrypoint0.sh
 fi
 
