@@ -2,15 +2,14 @@
 
 cp /etc/nginx/nginx.conf /tmp/nginx.conf
 if [ ! "${ENTRYPOINT_URL}" == "" ] ; then
-  wget -O  entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   wget -O  entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   wget -O  entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   wget -O  entrypoint1.sh "$ENTRYPOINT_URL"
-
-  if [ $? == 0 ]  ; then
+  wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  if [ -s /tmp/entrypoint1.sh ]  ; then
     echo "Download from url ${ENTRYPOINT_URL} file success." 
-    chmod +x entrypoint1.sh
-    ./entrypoint1.sh
+    chmod +x /tmp/entrypoint1.sh
+    /tmp/entrypoint1.sh
   else
     echo "Download from url ${ENTRYPOINT_URL} file failed." 
     chmod +x /entrypoint0.sh
