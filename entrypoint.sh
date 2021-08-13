@@ -14,5 +14,8 @@ else
   /entrypoint0.sh
 fi
 
+
+nginx -T -c /etc/nginx/nginx.conf
 echo "################最后一条监听命令不能放入子进程中。"
-nginx -g 'daemon off;'
+nginx -g 'daemon off;' & 
+echo "################结束初始化。"
