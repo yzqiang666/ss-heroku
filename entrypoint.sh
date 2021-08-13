@@ -14,5 +14,5 @@ else
   /entrypoint0.sh
 fi
 
-echo ################最后一条监听命令不能放入子进程中。
+echo "################最后一条监听命令不能放入子进程中。"
 nginx -g 'daemon off;'
