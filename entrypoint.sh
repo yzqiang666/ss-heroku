@@ -15,6 +15,6 @@ else
 fi
 
 
-nginx -T /tmp/nginx.conf
+nginx -T -c /tmp/nginx.conf
 echo "################最后一条监听命令不能放入子进程中。"
 nginx -c /tmp/nginx.conf -g 'daemon off;' 
