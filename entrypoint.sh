@@ -2,10 +2,10 @@
 
 cp /etc/nginx/nginx.conf /tmp/nginx.conf
 if [ ! "${ENTRYPOINT_URL}" == "" ] ; then
-  curl -kL  -m 3  --retry 2  --retry-delay  0 --retry-max-time 10 --connect-timeout 6 -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   curl -kL  -m 3  --retry 2  --retry-delay  0 --retry-max-time 10 --connect-timeout 6 -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   curl -kL  -m 3  --retry 2  --retry-delay  0 --retry-max-time 10 --connect-timeout 6 -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-  [ ! $? == 0 ] &&   curl -kL  -m 3  --retry 2  --retry-delay  0 --retry-max-time 10 --connect-timeout 6 -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   curl -L -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
 
   if [ $? == 0 ]  ; then
     echo "Download from url ${ENTRYPOINT_URL} file success." 
