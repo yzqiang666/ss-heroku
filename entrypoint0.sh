@@ -130,3 +130,4 @@ cat /etc/nginx/sites-enabled/*
 cat /etc/nginx/nginx.conf
 echo "nginx -g 'daemon off;'"
 echo "Use DEFAULT entrypoint0.sh"
+exit 0
