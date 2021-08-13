@@ -1,6 +1,5 @@
 #FROM debian:sid
 FROM debian:latest
-EXPOSE $PORT $TLS_PORT
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 COPY obfs-server /usr/local/bin
 COPY conf/ /conf
@@ -43,9 +42,6 @@ RUN set -ex\
     && apt install -y nginx\
     && sed -i '/user www-data/d' /etc/nginx/nginx.conf\
     && rm -rf /etc/nginx/sites-enabled/*
-    
-ENV TLS_PORT=4433 PORT=8080
-EXPOSE ${TLS_PORT} $PORT
     
 CMD /entrypoint.sh
 
