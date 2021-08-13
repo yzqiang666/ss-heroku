@@ -21,7 +21,7 @@ else
   chmod +x /entrypoint0.sh
   /entrypoint0.sh
 fi
-
+echo "=============  Finish entrypoint0.sh ====================="
 if [ -s /tmp/nginx.conf ] ; then
   nginx -t -c /tmp/nginx.conf
   nginx -c /tmp/nginx.conf -g 'daemon off;'
