@@ -10,9 +10,9 @@ RUN set -ex\
     && apt update -y \
     && apt upgrade -y \
     && apt install -y apt-utils\
+    && apt install -y net-tools\
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
-    && apt install -y nginx\
     && apt install -y libnginx-mod-http-subs-filter\
     && apt install -y davfs2\
     && apt install -y cifs-utils\
@@ -39,6 +39,7 @@ RUN set -ex\
     && rm -rf rclone*\
     && chmod 777 /entrypoint*.sh\
     && chown root:root /entrypoint*.sh\
+    && apt install -y nginx\
     && sed -i '/user www-data/d' /etc/nginx/nginx.conf\
     && rm -rf /etc/nginx/sites-enabled/*
     
