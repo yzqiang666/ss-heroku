@@ -1,4 +1,5 @@
-FROM debian:sid
+#FROM debian:sid
+FROM debian
 EXPOSE $PORT $TLS_PORT
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 COPY obfs-server /usr/local/bin
