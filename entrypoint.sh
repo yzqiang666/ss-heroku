@@ -1,18 +1,16 @@
 #!/bin/bash
 
 cp /etc/nginx/nginx.conf /tmp/nginx.conf
-[ ! "${ENTRYPOINT_URL}" == "" ] && curl -sL -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
-#if [ -s /tmp/entrypoint1.sh ] && [ ! "`grep \"#!/bin/bash\"`" == "" ]  ; then
-if [ -s /tmp/entrypoint1.sh ]  ; then
-   echo "Download from url ${ENTRYPOINT_URL} file success." 
+if [ ! "${ENTRYPOINT_URL}" == "" ] ; then
+  curl -s  -kL  -m 3  --retry 2  --retry-delay  0 --retry-max-time 10 --connect-timeout 6 -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ $? -gt 0 ] && curl -s  -kL  -m 3  --retry 2  --retry-delay  0 --retry-max-time 10 --connect-timeout 6 -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  if [ -s /tmp/entrypoint1.sh ]  ; then
+     echo "Download from url ${ENTRYPOINT_URL} file success." 
 #   tail -n 10 /tmp/entrypoint1.sh
-   chmod +x /tmp/entrypoint1.sh
-   /tmp/entrypoint1.sh
-else
-  chmod +x /entrypoint0.sh
-  echo "Use default entrypoint0.sh"
-  /entrypoint0.sh
+   mv /tmp/entrypoint1.sh /entrypoint0.sh
+ fi
 fi
+chmod +x /entrypoint0.sh
 
 
 nginx -t -c /tmp/nginx.conf
