@@ -23,8 +23,10 @@ echo ===========================================================
 cat /etc/nginx/nginx.conf
 echo ===========================================================
 cat /etc/nginx/conf.d/*
+
 RUNRUN="nginx -g 'daemon off;'"
-$RUNRUN
+echo "${RUNRUN}"
+eval "${RUNRUN}"
 echo "Finsh ungix"
 echo ===========================================================
 
