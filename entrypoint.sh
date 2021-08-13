@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+cp /etc/nginx/nginx.conf /tmp/nginx.conf
 [ ! "${ENTRYPOINT_URL}" == "" ] && curl -sL -o  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
 #if [ -s /tmp/entrypoint1.sh ] && [ ! "`grep \"#!/bin/bash\"`" == "" ]  ; then
 if [ -s /tmp/entrypoint1.sh ]  ; then
@@ -15,6 +15,6 @@ else
 fi
 
 
-nginx -T -c /etc/nginx/nginx.conf
+nginx -T /tmp/nginx.conf
 echo "################最后一条监听命令不能放入子进程中。"
-nginx -g 'daemon off;' 
+nginx -c /tmp/nginx.conf -g 'daemon off;' 
