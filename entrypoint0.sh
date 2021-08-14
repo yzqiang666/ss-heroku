@@ -39,7 +39,7 @@ if [[ -z "${QR_Path}" ]]; then
 fi
 
 cd /wwwroot
-tar xvf wwwroot.tar.gz >/dev/null
+tar xvf wwwroot.tar.gz >/dev/null 2>/dev/null
 rm -rf wwwroot.tar.gz
 
 if [ ! -d /etc/shadowsocks-libev ]; then  
@@ -63,7 +63,9 @@ else
 #  echo "site: ${ProxySite}"
 fi
 
-[ ! "${NGINX_SERVER_URL}" == "" ] && wget -O download.tmp "$NGINX_SERVER_URL"
+##[ ! "${NGINX_SERVER_URL}" == "" ] && wget -q -O download.tmp "$NGINX_SERVER_URL"
+wget -q -O download.tmp "$NGINX_SERVER_URL"
+[ ! -s download.tmp ] && wget -q -O download.tmp "$NGINX_SERVER_URL"
 if [ -s download.tmp ] && [ ! "`grep \"server {\" download.tmp`" == "" ] ; then
  echo "Download from url ${NGINX_SERVER_URL} file success." 
 else
@@ -80,15 +82,20 @@ sed -e "/^#/d"\
     download.tmp > /etc/nginx/conf.d/ss.conf
     
     
-[ ! "${NGINX_CONF_URL}" == "" ] && wget -O download1.tmp "$NGINX_CONF_URL"
-if [ -s download1.tmp ] && [ ! "`grep \"worker_processes\" download1.tmp`" == "" ] ; then
-  cp download1.tmp /tmp/nginx.conf
-  echo "Download from url ${NGINX_CONF_URL} file success." 
+if [ ! "${NGINX_CONF_URL}" == "" ] ; then
+  wget -q -O download1.tmp "$NGINX_CONF_URL"
+  [ ! -s download1.tmp ] && wget -q -O download1.tmp "$NGINX_CONF_URL"
+  if [ -s download1.tmp ] && [ ! "`grep \"worker_processes\" download1.tmp`" == "" ] ; then
+    cp download1.tmp /tmp/nginx.conf
+    echo "Download from url ${NGINX_CONF_URL} file success." 
+  else
+    cp /etc/nginx/nginx.conf /tmp/nginx.conf
+    echo "Download from url ${NGINX_CONF_URL} file failed." 
+  fi
 else
-  cp /etc/nginx/nginx.conf /tmp/nginx.conf
-  echo "Use default nginx.conf."
+    cp /etc/nginx/nginx.conf /tmp/nginx.conf
+    echo "Use default nginx.conf."
 fi
-
 
 #echo =====================================================================
 #echo 下载地址：${NGINX_CONF_URL}
@@ -116,9 +123,13 @@ rm -rf /etc/nginx/sites-enabled/* >/dev/null 2>/dev/null
 #  $SECOND_PROXY_COMMAND &
 #fi
 
-rm -rf /etc/nginx/sites-enabled/* >/devnull 2>/dev/null
+rm -rf /etc/nginx/sites-enabled
 #echo "nginx -g 'daemon off;'"
-ss-server -c /etc/shadowsocks-libev/config.json --plugin ${PLUGIN} --plugin-opts ${PLUGIN_OPTS} &
-echo "Use DEFAULT entrypoint0.sh "
+#ss-server -c /etc/shadowsocks-libev/config.json --plugin ${PLUGIN} --plugin-opts ${PLUGIN_OPTS} &
+echo "Use default entrypoint0.sh"
+echo "Use default entrypoint0.sh"
+echo "Use default entrypoint0.sh"
+echo "Use default entrypoint0.sh"
+echo "Use default entrypoint0.sh"
 #cat /tmp/nginx.conf
 exit 0
