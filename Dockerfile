@@ -6,6 +6,8 @@ RUN set -ex\
     && apt install -y wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y nginx\
+    && apt install -y libnginx-mod-http-subs-filter\   
+    && rm -rf /etc/nginx/sites-enabled/*
     && apt autoremove -y
 
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
