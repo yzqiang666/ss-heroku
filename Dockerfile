@@ -13,7 +13,6 @@ RUN set -ex\
     && apt install -y net-tools\
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
-    && apt install -y libnginx-mod-http-subs-filter\
     && apt install -y davfs2\
     && apt install -y cifs-utils\
     && apt autoremove -y\
@@ -32,8 +31,8 @@ RUN set -ex\
     && mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin\
     && cd /\
     && rm -rf /v2raybin\
-    && wget --no-check-certificate "https://downloads.rclone.org/rclone-current-linux-amd64.zip"\
-    && unzip rclone-current-linux-amd64.zip rclone-*/rclone\
+    && wget -O rclone.zip "https://downloads.rclone.org/rclone-current-linux-amd64.zip"\
+    && unzip rclone.zip rclone-*/rclone\
     && mv rclone-*/rclone /usr/bin\
     && chmod +x /usr/bin/rclone\
     && rm -rf rclone*\
@@ -41,6 +40,7 @@ RUN set -ex\
     && chown root:root /entrypoint*.sh\
     && apt install -y nginx\
     && sed -i '/user www-data/d' /etc/nginx/nginx.conf\
+    && apt install -y libnginx-mod-http-subs-filter\   
     && rm -rf /etc/nginx/sites-enabled/*
     
 CMD /entrypoint.sh
