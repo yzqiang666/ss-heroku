@@ -12,13 +12,7 @@ RUN set -ex\
     && apt install -y shadowsocks-libev\
     && apt install -y davfs2\
     && apt install -y cifs-utils\
-    && apt install -y php7.2\
-    && apt install -y php7.2-fpm\ 
-    && apt install -y nginx\
-    && apt install -y php-json\
-    && apt install -y php-curl\ 
-    && apt install -y php7.2-mysql\ 
-    && apt install -y php7.2-cgi\
+    && apt install -y php7.0-fpm php7.0-mysql php7.0-common php7.0-curl php7.0-cli php7.0-mcrypt php7.0-mbstring php7.0-dom\
     && curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz\
     && gunzip gost.gz\
     && chmod +x gost\
