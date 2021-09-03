@@ -50,7 +50,8 @@
 
      "ProxySite": {
       "description": "域名用于反代一个网站，例如：www.google.com，不填写表示使用本地静态网页文件。",
-      "value": "www.google.com"
+      "value": "",
+      "required": "false"
     },
 
      "NGINX_CONF_URL": {
