@@ -78,12 +78,12 @@
       "value": "gost -L ss+wss://chacha20-ietf-poly1305:yzqyzq1234@:2334?host=v2ray-ss888.herokuapp.com&path=/gostgostgost",
       "required": false
     },
-     "USER": {
+     "USER_RCLONE": {
       "description": "Please Paste your login user. ",
       "value": "",
       "required": false
     },
-     "PASSWORD": {
+     "PASSWORD_RCLONE": {
       "description": "Please Paste your login password. ",
       "value": "",
       "required": false       
