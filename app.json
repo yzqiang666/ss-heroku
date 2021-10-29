@@ -25,7 +25,7 @@
     "PROXY_LIST": {
       "description": "反向代理列表",
       "value": "www.google.com\r\nwww.youtube.com",
-      "required": "false"
+      "required": false
     },
 
     "PLUGIN": {
@@ -51,38 +51,61 @@
      "ProxySite": {
       "description": "域名用于反代一个网站，例如：www.google.com，不填写表示使用本地静态网页文件。",
       "value": "",
-      "required": "false"
+      "required": false
     },
 
      "NGINX_CONF_URL": {
       "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空",      
       "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/nginx.conf",
-      "required": "false"       
+      "required": false      
     },
 
     
     "NGINX_SERVER_URL": {
       "description": "提供conf.d目录下的ss.conf配置的下载链接，用于覆盖默认的配置文件，可以为空",      
       "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/ss.conf",
-      "required": "false"       
+      "required": false       
     },
 
     "ENTRYPOINT_URL": {
       "description": "提供启动运行脚本文件下载链接，用于覆盖默认的启动脚本，可以为空",
       "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/entrypoint0.sh",
-      "required": "false"      
-    },
-    
-    "RCLONE_URL": {
-      "description": "提供rclone配置文件下载链接，用于覆盖默认的启动脚本，可以为空",
-      "value": "http://XXXX.XXX/rclone.conf",
-      "required": "false"      
+      "required": false      
     },
         
      "SECOND_PROXY_COMMAND": {
       "description": "第二个代理命令，请先调试好参数，后粘贴进来。",
       "value": "gost -L ss+wss://chacha20-ietf-poly1305:yzqyzq1234@:2334?host=v2ray-ss888.herokuapp.com&path=/gostgostgost",
-      "required": "false"
+      "required": false
+    },
+     "USER": {
+      "description": "Please Paste your login user. ",
+      "value": "",
+      "required": false
+    },
+     "PASSWORD": {
+      "description": "Please Paste your login password. ",
+      "value": "",
+      "required": false       
+    },
+     "RCLONE_INFO": {
+      "description": "Please Paste  from file： rclone.conf",
+      "value": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n     Paste from file rclone.conf ! \r\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n\r\n"
+    },
+     "CLOUDNAME": {
+      "description": "Please enter your Cloudname/Remote that you assigned in rclone.conf file.See Readme https://github.com/yzqiang666/HEROKU-RCLONE-SERVE-INDEX",
+      "value": "",
+       "required": false
+    },
+     "CLOUDPATH": {
+      "description": "Please enter your remote cloud path",
+      "value": "",
+      "required": false
+    },
+     "RCLONE_ARGUMENT": {
+      "description": "Please enter other argument for rclone",
+      "value": "--vfs-read-chunk-size 128M --dir-cache-time 12h",
+      "required": false     
     }
 
   },
