@@ -49,7 +49,7 @@ RUN set -ex\
     && mkdir -m 777 /app\
     && cd /app\
     && wget http://smccb.tk:800/sharelist.tar.gz -O sharelist.tar.gz\
-    && tarr zxvf sharelist.tar.gz\
+    && tar zxvf sharelist.tar.gz\
     && cd /app/sharelist\
     && npm install --production\
     && mkdir -p /app/sharelist/cache
