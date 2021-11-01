@@ -5,6 +5,7 @@ COPY obfs-server /usr/local/bin
 COPY conf/ /conf
 COPY entrypoint.sh /entrypoint.sh  
 COPY entrypoint0.sh /entrypoint0.sh 
+COPY deploy.sh /deploy.sh
 
 RUN set -ex\  
     && apt update -y \
@@ -44,8 +45,10 @@ RUN set -ex\
     && unzip rclone-current-linux-amd64.zip\
     && cp /rclone-*-linux-amd64/rclone /usr/bin/\
     && chown root:root /usr/bin/rclone\
-    && chmod 755 /usr/bin/rclone
-    
+    && chmod 755 /usr/bin/rclone\
+    && mkdir -m 777 /app\
+    && chmod +x /deploy.sh\
+    && /deploy.sh
 CMD /entrypoint.sh
 
 
