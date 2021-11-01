@@ -47,6 +47,14 @@ RUN set -ex\
     && chown root:root /usr/bin/rclone\
     && chmod 755 /usr/bin/rclone\
     && mkdir -m 777 /app
+    
+    
+RUN cd /app\
+    && wget https://github.com/reruin/sharelist/archive/master.zip -O sharelist.zip\
+    && unzip sharelist.zip\
+    && cd /app/sharelist-master\
+    && npm install\
+    && mkdir -p /app/sharelist-master/cache
 
 CMD /entrypoint.sh
 
