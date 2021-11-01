@@ -10,7 +10,7 @@ COPY entrypoint0.sh /entrypoint0.sh
 
 RUN set -ex\  
     && apk update \
-    && apk add curl wget unzip qrencode\
+    && apk add curl wget unzip\
     && apk add shadowsocks-libev\
     && apk add davfs2\
     && apk add cifs-utils\
