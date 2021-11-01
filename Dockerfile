@@ -21,11 +21,11 @@ RUN set -ex\
     && tar zxvf sharelist.tar.gz\
     && cd /app/sharelist\
     && npm install --production -g\
-    && npm config set registry https://registry.npm.taobao.org
-    && npm install n -g
-    && n stable
-    && PATH="$PATH"
-    && node -v
+    && npm config set registry https://registry.npm.taobao.org\
+    && npm install n -g\
+    && n stable\
+    && PATH="$PATH"\
+    && node -v\
     && mkdir -p /app/sharelist/cache\
     && curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz\
     && gunzip gost.gz\
