@@ -39,7 +39,7 @@
      },
      "SHARELIST_CONF": {
       "description": "sharelist 配置内容或链接",
-      "value": "http://smccb.tk:800/sharelist.conf"
+      "value": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n     Paste from file sharelist/cache/config.json ! \r\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n\r\n"
     },
      "AppName": {
       "description": "请输入最上方填写的App Name，用于生成配置和二维码，如果不想生成输入no",
