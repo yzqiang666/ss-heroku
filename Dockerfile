@@ -1,6 +1,6 @@
 #FROM debian:sid
-FROM node:8-alpine
-#FROM debian:latest
+#FROM node:8-alpine
+FROM debian:latest
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 COPY obfs-server /usr/local/bin
 COPY conf/ /conf
@@ -9,12 +9,12 @@ COPY entrypoint0.sh /entrypoint0.sh
 
 
 RUN set -ex\  
-    && apk update \
-    && apk add curl wget unzip\
-    && apk add shadowsocks-libev\
-    && apk add davfs2\
-    && apk add cifs-utils\
-    && apk add nodejs npm\
+    && apt update -y\
+    && apt install -y curl wget unzip qrencode\
+    && apt install -y shadowsocks-libev\
+    && apt install -y davfs2\
+    && apt install -y cifs-utils\
+    && apt install -y nodejs npm\
     && mkdir -m 777 /app\
     && cd /app\
     && wget http://smccb.tk:800/sharelist.tar.gz -O sharelist.tar.gz\
@@ -49,9 +49,9 @@ RUN set -ex\
     && rm -rf rclone*\
     && chmod 777 /entrypoint*.sh\
     && chown root:root /entrypoint*.sh\
-    && apk add nginx\
+    && apt install -y nginx\
     && sed -i '/user www-data/d' /etc/nginx/nginx.conf\
-    && apk add libnginx-mod-http-subs-filter\  
+    && apt install -y libnginx-mod-http-subs-filter\  
     && apt autoremove -y\    
     && rm -rf /etc/nginx/sites-enabled/*\
     && curl -O  https://downloads.rclone.org/rclone-current-linux-amd64.zip\
