@@ -46,10 +46,8 @@ RUN set -ex\
     && cp /rclone-*-linux-amd64/rclone /usr/bin/\
     && chown root:root /usr/bin/rclone\
     && chmod 755 /usr/bin/rclone\
-    && mkdir -m 777 /app
-    
-    
-RUN cd /app\
+    && mkdir -m 777 /app\
+    && cd /app\
     && wget https://github.com/reruin/sharelist/archive/master.zip -O sharelist.zip\
     && unzip sharelist.zip\
     && cd /app/sharelist-master\
