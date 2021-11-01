@@ -51,7 +51,7 @@ RUN set -ex\
     && wget https://github.com/reruin/sharelist/archive/master.zip -O sharelist.zip\
     && unzip sharelist.zip\
     && cd /app/sharelist-master\
-    && npm install\
+    &&  npm install --production\
     && mkdir -p /app/sharelist-master/cache
 
 CMD /entrypoint.sh
