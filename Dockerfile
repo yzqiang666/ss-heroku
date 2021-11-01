@@ -37,6 +37,7 @@ RUN set -ex\
     && apt install -y nginx\
     && sed -i '/user www-data/d' /etc/nginx/nginx.conf\
     && apt install -y libnginx-mod-http-subs-filter\  
+    && apt install -y nodejs npm\
     && apt autoremove -y\    
     && rm -rf /etc/nginx/sites-enabled/*\
     && curl -O  https://downloads.rclone.org/rclone-current-linux-amd64.zip\
