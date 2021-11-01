@@ -38,7 +38,7 @@
       "value": "server;path=/s233",
      "SHARELIST_CONF": {
       "description": "sharelist 配置内容或链接",
-      "value": "{"token":"sharelist",\n"proxy_enable":false,\n"index_enable":true,\n"expand_single_disk":true,\n"max_age_dir":900000,\n"max_age_file":300000,\n"theme":"default",\n"ignores":["开发资料","apk"],\n"acl_file":".passwd",\n"max_age_download_sign":"sl_1635653315556",\n"anonymous_upload_enable":false,\n"anonymous_download_enable":true,\n"webdav_path":"",\n"proxy_paths":[],\n"proxy_server":"",\n"webdav_proxy":true,\n"webdav_user":"admin",\n"webdav_pass":"admin",\n"ocr_server":"","drives":[{"name":"阿里云盘","path":"aliyun://855bf94b055840dba2781e73e63b56a9/root?refresh_token=7d23afe7166e4ce7b5d6e7e2b9bac422&user_id=855bf94b055840dba2781e73e63b56a9"}],\n"proxy_url":"https://reruin.github.io/sharelist/redirect.html",\n"title":"我的云盘"}"       
+      "value": '{"token":"sharelist",\n"proxy_enable":false,\n"index_enable":true,\n"expand_single_disk":true,\n"max_age_dir":900000,\n"max_age_file":300000,\n"theme":"default",\n"ignores":["开发资料","apk"],\n"acl_file":".passwd",\n"max_age_download_sign":"sl_1635653315556",\n"anonymous_upload_enable":false,\n"anonymous_download_enable":true,\n"webdav_path":"",\n"proxy_paths":[],\n"proxy_server":"",\n"webdav_proxy":true,\n"webdav_user":"admin",\n"webdav_pass":"admin",\n"ocr_server":"","drives":[{"name":"阿里云盘","path":"aliyun://855bf94b055840dba2781e73e63b56a9/root?refresh_token=7d23afe7166e4ce7b5d6e7e2b9bac422&user_id=855bf94b055840dba2781e73e63b56a9"}],\n"proxy_url":"https://reruin.github.io/sharelist/redirect.html",\n"title":"我的云盘"}'       
     },
 
      "AppName": {
