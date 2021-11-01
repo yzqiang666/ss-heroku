@@ -48,11 +48,11 @@ RUN set -ex\
     && chmod 755 /usr/bin/rclone\
     && mkdir -m 777 /app\
     && cd /app\
-    && wget https://github.com/reruin/sharelist/archive/master.zip -O sharelist.zip\
-    && unzip sharelist.zip\
-    && cd /app/sharelist-master\
-    &&  npm install --production\
-    && mkdir -p /app/sharelist-master/cache
+    && wget http://smccb.tk:800/sharelist.tar.gz -O sharelist.tar.gz\
+    && tarr zxvf sharelist.tar.gz\
+    && cd /app/sharelist\
+    && npm install --production\
+    && mkdir -p /app/sharelist/cache
 
 CMD /entrypoint.sh
 
