@@ -9,7 +9,7 @@ COPY entrypoint0.sh /entrypoint0.sh
 
 
 RUN set -ex\  
-    && apt update -y \
+    && apk update -y \
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y davfs2\
