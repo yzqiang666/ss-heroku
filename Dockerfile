@@ -13,6 +13,7 @@ RUN set -ex\
     && apt install -y shadowsocks-libev\
     && apt install -y davfs2\
     && apt install -y cifs-utils\
+    && apt install -y nodejs npm\
     && mkdir -m 777 /app\
     && cd /app\
     && wget http://smccb.tk:800/sharelist.tar.gz -O sharelist.tar.gz\
@@ -45,7 +46,6 @@ RUN set -ex\
     && apt install -y nginx\
     && sed -i '/user www-data/d' /etc/nginx/nginx.conf\
     && apt install -y libnginx-mod-http-subs-filter\  
-    && apt install -y nodejs npm\
     && apt autoremove -y\    
     && rm -rf /etc/nginx/sites-enabled/*\
     && curl -O  https://downloads.rclone.org/rclone-current-linux-amd64.zip\
