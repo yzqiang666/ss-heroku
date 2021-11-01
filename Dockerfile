@@ -1,5 +1,6 @@
 #FROM debian:sid
-FROM debian:latest
+FROM node:8-alpine
+#FROM debian:latest
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 COPY obfs-server /usr/local/bin
 COPY conf/ /conf
