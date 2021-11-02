@@ -13,7 +13,7 @@ RUN set -ex\
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y davfs2\
-    && apt install -y cifs-utils\
+    && apt install -y cifs-utils fuse\
     && apt install -y nodejs npm\
     && mkdir -m 777 /app\
     && cd /app\
