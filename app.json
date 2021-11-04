@@ -36,11 +36,8 @@
      "PLUGIN_OPTS": {
       "description": "插件参数：1. 插件为v2ray-plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-server时，填写obfs=http;failover=127.0.0.1:81;http-method=websocket等",
       "value": "server;path=/s233"
-     },
-     "SHARELIST_CONF": {
-      "description": "sharelist 配置内容或链接",
-      "value": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n     Paste from file sharelist/cache/config.json ! \r\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n\r\n"
     },
+
      "AppName": {
       "description": "请输入最上方填写的App Name，用于生成配置和二维码，如果不想生成输入no",
       "value": "v2ray-ss",
