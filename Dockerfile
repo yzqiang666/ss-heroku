@@ -58,9 +58,8 @@ RUN mkdir -m 777 /app\
     && npm config set registry https://registry.npm.taobao.org\
     && npm install n -g\
     && n stable\
-    && PATH="$PATH"\
-    && node -v\
-    && npm install\
+    && /usr/local/bin/node -v\
+    && /usr/local/bin/npm install\
 CMD /entrypoint.sh
 
 
