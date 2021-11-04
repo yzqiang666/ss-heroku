@@ -44,19 +44,6 @@ RUN set -ex\
     && unzip rclone-current-linux-amd64.zip\
     && cp /rclone-*-linux-amd64/rclone /usr/bin/\
     && chown root:root /usr/bin/rclone\
-    && chmod 755 /usr/bin/rclone\
-    && mkdir -m 777 /app\
-    && cd /app\
-    && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
-    && tar zxvf sharelist.tar.gz >/dev/null 2>/dev/null\
-    && cd /app/sharelist\
-    && mkdir -p /app/sharelist/cache\
-    && npm install --production -g\   
-    && #npm config set registry https://registry.npm.taobao.org\
-    && npm install n -g\   
-    && n stable\  
-    && /usr/local/bin/node -v\ 
-    && /usr/local/bin/npm install
-    
+    && chmod 755 /usr/bin/rclone
 CMD /entrypoint.sh
 
