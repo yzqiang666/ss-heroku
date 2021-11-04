@@ -54,19 +54,12 @@ RUN mkdir -m 777 /app\
     && tar zxvf sharelist.tar.gz >/dev/null 2>/dev/null\
     && cd /app/sharelist\
     && mkdir -p /app/sharelist/cache\
-    && echo "AAAA"\
-    && npm install --production -g\
-    && echo "BBBB"\    
-    && npm config set registry https://registry.npm.taobao.org\
-    && echo "CCCC"\
-    && npm install n -g\
-    && echo "DDDD"\    
-    && n stable\
-    && echo "EEEE"\    
-    && /usr/local/bin/node -v\
-    && echo "FFFF"\    
-    && /usr/local/bin/npm install\
-    && echo "GGGG"
+    && npm install --production -g\   
+    && #npm config set registry https://registry.npm.taobao.org\
+    && npm install n -g\   
+    && n stable\  
+    && /usr/local/bin/node -v\ 
+    && /usr/local/bin/npm install
     
 CMD /entrypoint.sh
 
