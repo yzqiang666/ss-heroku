@@ -1,5 +1,4 @@
 #FROM debian:sid
-#FROM node:8-alpine
 FROM debian:latest
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
 COPY obfs-server /usr/local/bin
@@ -7,14 +6,12 @@ COPY conf/ /conf
 COPY entrypoint.sh /entrypoint.sh  
 COPY entrypoint0.sh /entrypoint0.sh 
 
-
 RUN set -ex\  
-    && apt update -y\
+    && apt update -y \
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y davfs2\
-    && apt install -y cifs-utils fuse\
-    && apt install -y nodejs npm\
+    && apt install -y cifs-utils\
     && curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz\
     && gunzip gost.gz\
     && chmod +x gost\
@@ -47,20 +44,6 @@ RUN set -ex\
     && cp /rclone-*-linux-amd64/rclone /usr/bin/\
     && chown root:root /usr/bin/rclone\
     && chmod 755 /usr/bin/rclone
-
-RUN mkdir -m 777 /app\
-    && cd /app\
-    && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
-    && tar zxvf sharelist.tar.gz >/dev/null 2>/dev/null\
-    && cd /app/sharelist\
-    && mkdir -p /app/sharelist/cache\
-    && npm install --production -g\   
-    && #npm config set registry https://registry.npm.taobao.org\
-    && npm install n -g\   
-    && n stable\  
-    && /usr/local/bin/node -v\ 
-    && /usr/local/bin/npm install
     
 CMD /entrypoint.sh
-
 
