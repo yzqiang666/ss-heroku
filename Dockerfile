@@ -52,7 +52,6 @@ RUN set -ex\
     && cd /app/sharelist\
     && mkdir -p /app/sharelist/cache\
     && npm install --production -g\   
-    && #npm config set registry https://registry.npm.taobao.org\
     && npm install n -g\   
     && n stable\  
     && /usr/local/bin/node -v\ 
