@@ -2,10 +2,10 @@
 
 cp /etc/nginx/nginx.conf /tmp/nginx.conf
 if [ ! "${ENTRYPOINT_URL}" == "" ] ; then
-  wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL" >/dev/null 2>/dev/null
-  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL" >/dev/null 2>/dev/null
-  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL" >/dev/null 2>/dev/null
-  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL" >/dev/null 2>/dev/null
+  wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
+  [ ! $? == 0 ] &&   wget -O  /tmp/entrypoint1.sh "$ENTRYPOINT_URL"
   if [ -s /tmp/entrypoint1.sh ]  ; then
     echo "Download from url ${ENTRYPOINT_URL} file success." 
     chmod +x /tmp/entrypoint1.sh
@@ -29,4 +29,3 @@ else
   nginx -g 'daemon off;'
 fi
 #echo "################最后一条监听命令不能放入子进程中。"
-
