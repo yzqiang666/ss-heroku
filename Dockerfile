@@ -51,15 +51,23 @@ RUN set -ex\
 RUN mkdir -m 777 /app\
     && cd /app\
     && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
-    && tar zxvf sharelist.tar.gz\
+    && tar zxvf sharelist.tar.gz >/dev/null 2>/dev/null\
     && cd /app/sharelist\
     && mkdir -p /app/sharelist/cache\
+    && echo "AAAA"\
     && npm install --production -g\
+    && echo "BBBB"\    
     && npm config set registry https://registry.npm.taobao.org\
+    && echo "CCCC"\
     && npm install n -g\
+    && echo "DDDD"\    
     && n stable\
+    && echo "EEEE"\    
     && /usr/local/bin/node -v\
+    && echo "FFFF"\    
     && /usr/local/bin/npm install\
+    && echo "GGGG"
+    
 CMD /entrypoint.sh
 
 
