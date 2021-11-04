@@ -14,12 +14,15 @@ if [ ! "${ENTRYPOINT_URL}" == "" ] ; then
     echo "Download from url ${ENTRYPOINT_URL} file failed." 
     chmod +x /entrypoint0.sh
     /entrypoint0.sh
+    RETCODE=$?
   fi
 else
   echo "Use default entrypoint0.sh."
   chmod +x /entrypoint0.sh
   /entrypoint0.sh
+  RETCODE=$?  
 fi
+if [ "$RETCODE" == "0" ] ; then
 echo "=============  Finish entrypoint0.sh ====================="
 if [ -s /tmp/nginx.conf ] ; then
   nginx -t -c /tmp/nginx.conf
@@ -29,3 +32,4 @@ else
   nginx -g 'daemon off;'
 fi
 #echo "################最后一条监听命令不能放入子进程中。"
+fi
