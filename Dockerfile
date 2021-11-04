@@ -15,7 +15,6 @@ RUN set -ex\
     && apt install -y davfs2\
     && apt install -y cifs-utils fuse\
     && apt install -y nodejs npm\
-    && mkdir -m 777 /app\
     && curl -L -o gost.gz https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz\
     && gunzip gost.gz\
     && chmod +x gost\
@@ -49,7 +48,19 @@ RUN set -ex\
     && chown root:root /usr/bin/rclone\
     && chmod 755 /usr/bin/rclone
 
-
+RUN mkdir -m 777 /app\
+    && cd /app&
+    wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
+    && tar zxvf sharelist.tar.gz\
+    && cd /app/sharelist\
+    && mkdir -p /app/sharelist/cache\
+    && npm install --production -g\
+    && npm config set registry https://registry.npm.taobao.org\
+    && npm install n -g\
+    && n stable\
+    && PATH="$PATH"\
+    && node -v\
+    && npm install\
 CMD /entrypoint.sh
 
 
