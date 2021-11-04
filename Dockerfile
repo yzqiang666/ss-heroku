@@ -50,7 +50,7 @@ RUN set -ex\
 
 RUN mkdir -m 777 /app\
     && cd /app&
-    wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
+    && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
     && tar zxvf sharelist.tar.gz\
     && cd /app/sharelist\
     && mkdir -p /app/sharelist/cache\
