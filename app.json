@@ -57,20 +57,20 @@
 
      "NGINX_CONF_URL": {
       "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空",      
-      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/nginx.conf",
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/nginx_33001.conf",
       "required": false      
     },
 
     
     "NGINX_SERVER_URL": {
       "description": "提供conf.d目录下的ss.conf配置的下载链接，用于覆盖默认的配置文件，可以为空",      
-      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/ss.conf",
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/ss_33001.conf",
       "required": false       
     },
 
     "ENTRYPOINT_URL": {
       "description": "提供启动运行脚本文件下载链接，用于覆盖默认的启动脚本，可以为空",
-      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/entrypoint0.sh",
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/entrypoint_33001.sh",
       "required": false      
     },
         
