@@ -90,12 +90,12 @@
       "required": false       
     },
      "RCLONE_INFO": {
-      "description": "Please Paste  from file： rclone.conf",
-      "value": "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n     Paste from file rclone.conf ! \r\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\r\n\r\n"
+      "description": "Please Paste  from file rclone.conf or input URL",
+      "value": "http://smccb.tk:800/rclone.conf"
     },
      "CLOUDNAME": {
       "description": "Please enter your Cloudname/Remote that you assigned in rclone.conf file.See Readme https://github.com/yzqiang666/HEROKU-RCLONE-SERVE-INDEX",
-      "value": "",
+      "value": "team",
        "required": false
     },
      "CLOUDPATH": {
