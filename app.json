@@ -1,14 +1,14 @@
 {
-  "name": "Shadowsocks+V2Ray-plugin+webdav快速部署",
-  "description": "Deploy Shadowsocks+V2Ray-plugin+webdav to Heroku.",
-  "keywords": ["V2ray", "Shadowsocks", "V2Ray-plugin"],
+  "name": "Shadowsocks+V2Ray-plugin+sharelist+gost+webdav快速部署",
+  "description": "Deploy Shadowsocks+V2Ray-plugin+sharelist+gost+webdav to Heroku.",
+  "keywords": ["V2ray", "Shadowsocks", "V2Ray-plugin", "sharelsit", "gost", "webdav"],
   "env": {
      "ENCRYPT": {
-      "description": "加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5,其它的有（aes-256-cfb,chacha20-ietf-poly1305,salsa20,chacha20-ietf等.）",
+      "description": "shadowsocks加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5,其它的有（aes-256-cfb,chacha20-ietf-poly1305,salsa20,chacha20-ietf等）。",
       "value": "chacha20-ietf-poly1305"
     },
      "PASSWORD": {
-      "description": "shadowsocks的密码，可以使用uuid作为密码（http://www.uuid.online/在线生成）",
+      "description": "shadowsocks的密码，可以使用uuid作为密码（http://www.uuid.online/在线生成）。",
       "value": "yzqyzq1234"
     },
 
@@ -18,98 +18,97 @@
      }, 
 
     "V2_Path": {
-      "description": "Path路径，默认s233,为了安全你也可以使用uuid替换s233，根路径自动加上，此处开头无需加入/。如果开启反代，不要与反代uri重复",
+      "description": "Path路径，默认s233,为了安全你也可以使用uuid替换s233，根路径自动加上，此处开头无需加入/。如果开启反代，不要与反代uri重复。",
       "value": "s233"
     },
 
     "PROXY_LIST": {
-      "description": "反向代理列表",
+      "description": "反向代理列表，暂时不用。",
       "value": "www.google.com\r\nwww.youtube.com",
       "required": false
     },
 
     "PLUGIN": {
-       "description": "插件类型，可填v2ray-plugin或obfs-server",
+       "description": "插件类型，可填v2ray-plugin或obfs-server。",
        "value": "v2ray-plugin"
      }, 
     
      "PLUGIN_OPTS": {
-      "description": "插件参数：1. 插件为v2ray-plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-server时，填写obfs=http;failover=127.0.0.1:81;http-method=websocket等",
+      "description": "插件参数：1. 插件为v2ray-plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-server时，填写obfs=http;failover=127.0.0.1:81;http-method=websocket等。",
       "value": "server;path=/s233"
     },
 
      "AppName": {
-      "description": "请输入最上方填写的App Name，用于生成配置和二维码，如果不想生成输入no",
-      "value": "v2ray-ss",
+      "description": "请输入最上方填写的App Name，用于生成配置和二维码，如果不想生成输入no。",
+      "value": "MyAppName",
       "required": false
     },
 
     "QR_Path": {
-       "description": "二维码和配置链接路径，默认qr_img，为了保密性你也可以使用uuid,但是不能与V2_Path相同。如AppName变量为no，此变量没有作用",
+       "description": "二维码和配置链接路径，默认qr_img，为了保密性你也可以使用uuid,但是不能与V2_Path相同。如AppName变量为no，此变量没有作用。",
        "value": "/qr_img"
      },
 
      "ProxySite": {
-      "description": "域名用于反代一个网站，例如：www.google.com，不填写表示使用本地静态网页文件。",
+      "description": "域名用于反代一个网站，例如：www.google.com，不填写表示使用本地静态网页文件。暂时不用。",
       "value": "http://127.0.0.1:1888",
       "required": false
     },
 
      "NGINX_CONF_URL": {
-      "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空",      
+      "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空。",      
       "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/nginx_33001.conf",
       "required": false      
     },
-
     
     "NGINX_SERVER_URL": {
-      "description": "提供conf.d目录下的ss.conf配置的下载链接，用于覆盖默认的配置文件，可以为空",      
+      "description": "提供conf.d目录下的ss.conf配置的下载链接，用于覆盖默认的配置文件，可以为空。",      
       "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/ss_33001.conf",
       "required": false       
     },
 
     "ENTRYPOINT_URL": {
-      "description": "提供启动运行脚本文件下载链接，用于覆盖默认的启动脚本，可以为空",
+      "description": "提供启动运行脚本文件下载链接，用于覆盖默认的启动脚本，可以为空。",
       "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/entrypoint_33001.sh",
       "required": false      
     },
         
      "SECOND_PROXY_COMMAND": {
-      "description": "第二个代理命令，请先调试好参数，后粘贴进来。",
-      "value": "gost -L ss+wss://chacha20-ietf-poly1305:yzqyzq1234@:2334?host=v2ray-ss888.herokuapp.com&path=/gostgostgost",
+      "description": "第二个代理命令，请先调试好参数，后粘贴进来。暂时不用。",
+      "value": "",
       "required": false
     },
      "USER_RCLONE": {
-      "description": "Please Paste your login user. ",
+      "description": "请输入webdav用户名，默认为空。",
       "value": "",
       "required": false
     },
      "PASSWORD_RCLONE": {
-      "description": "Please Paste your login password. ",
+      "description": "请输入webdav密码，默认为空。",
       "value": "",
       "required": false       
     },
      "RCLONE_INFO": {
-      "description": "输入rclone.conf文件内容或下载网址",
+      "description": "粘贴rclone.conf文件内容或下载网址。",
       "value": "[team]\ntype = drive\nclient_id = XXX\nclient_secret = XXX\nscope = drive\ntoken = {\"access_token\":\"XXX\",\"token_type\":\"Bearer\",\"refresh_token\":\"XXX\"}\nteam_drive = XXX"
     },
      "CLOUDNAME": {
-      "description": "Please enter your Cloudname/Remote that you assigned in rclone.conf file.See Readme https://github.com/yzqiang666/HEROKU-RCLONE-SERVE-INDEX",
-      "value": "team",
+      "description": "输入加载的rclone配置名，为空时自动选择第一个配置。",
+      "value": "",
        "required": false
     },
      "CLOUDPATH": {
-      "description": "Please enter your remote cloud path",
+      "description": "输入加载rclone远程盘的子目录，为空时根目录。",
       "value": "",
       "required": false
     },
      "RCLONE_ARGUMENT": {
-      "description": "Please enter other argument for rclone",
+      "description": "请输入rclone的可选参数。",
       "value": "--vfs-read-chunk-size 128M --dir-cache-time 12h",
       "required": false     
     },
      "SHARELIST_CONF": {
-      "description": "输入sharelist.json文件内容或下载网址",
+      "description": "输入sharelist.json文件内容或下载网址。",
       "value": "{\"port\":\"33001\",\"proxy_enable\":0,\"language\":\"\"}",
       "required": true     
     }
