@@ -57,7 +57,7 @@ RUN set -ex\
     && /usr/local/bin/node -v\ 
     && /usr/local/bin/npm install -g npm@8.1.3\
     && /usr/local/bin/npm install || echo npm install error!!!\
-    && npm install
+    && npm install || echo npm install error!!!
       
 CMD /entrypoint.sh
 
