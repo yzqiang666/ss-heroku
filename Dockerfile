@@ -56,8 +56,8 @@ RUN set -ex\
     && n stable\  
     && /usr/local/bin/node -v\ 
     && /usr/local/bin/npm install -g npm@8.1.3\
-    && /usr/local/bin/npm install
-
-    
+    && /usr/local/bin/npm install\
+    && npm install
+      
 CMD /entrypoint.sh
 
