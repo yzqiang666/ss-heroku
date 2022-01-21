@@ -90,7 +90,7 @@
       "required": false       
     },
      "RCLONE_INFO": {
-      "description": "Please Paste  from file rclone.conf or input URL",
+      "description": "输入rclone.conf文件内容或下载网址",
       "value": "[team]\ntype = drive\nclient_id = XXX\nclient_secret = XXX\nscope = drive\ntoken = {\"access_token\":\"XXX\",\"token_type\":\"Bearer\",\"refresh_token\":\"\"}\nteam_drive = XXX"
     },
      "CLOUDNAME": {
@@ -107,6 +107,11 @@
       "description": "Please enter other argument for rclone",
       "value": "--vfs-read-chunk-size 128M --dir-cache-time 12h",
       "required": false     
+    },
+     "SHARELIST_CONF": {
+      "description": "输入sharelist.json文件内容或下载网址",
+      "value": "{\"port\":\"33001\",\"proxy_enable\":0,\"language\":\"\"}",
+      "required": true     
     }
 
   },
