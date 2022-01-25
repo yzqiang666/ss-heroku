@@ -1,6 +1,7 @@
 #FROM debian:sid
 FROM debian:latest
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
+COPY emby.tar.gz /wwwroot/emby.tar.gz
 COPY obfs-server /usr/local/bin
 COPY conf/ /conf
 COPY entrypoint.sh /entrypoint.sh  
@@ -57,7 +58,11 @@ RUN set -ex\
     && /usr/local/bin/node -v\ 
     && /usr/local/bin/npm install -g npm@8.1.3\
     && /usr/local/bin/npm install || echo npm install error!!!\
-    && npm install || echo npm install error!!!
+    && npm install || echo npm install error!!!\
+    && cd /wwwroot\
+    && tar zxvf wwwroot.tar.gz\
+    && tar zxvf emby.tar.gz\
+    && rm *.tar.gz
       
 CMD /entrypoint.sh
 
