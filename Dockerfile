@@ -56,7 +56,7 @@ RUN set -ex\
     && npm install n -g\   
     && n stable\  
     && /usr/local/bin/node -v\ 
-    && /usr/local/bin/npm install -g npm@8.3.2\
+    && /usr/local/bin/npm install -g npm@8.1.2\
     && /usr/local/bin/npm install || echo npm install error!!!\
     && npm install || echo npm install error!!!\
     && cd /wwwroot\
