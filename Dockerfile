@@ -48,6 +48,9 @@ RUN set -ex\
     && chmod 755 /usr/bin/rclone\
     && mkdir -m 777 /app\
     && cd /app\
+    && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/emby.tar.gz -O emby.tar.gz\
+    && tar zxvf emby.tar.gz >/dev/null 2>/dev/null\
+    && mv web emby\
     && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
     && tar zxvf sharelist.tar.gz >/dev/null 2>/dev/null\
     && cd /app/sharelist\
