@@ -1,7 +1,7 @@
 #FROM debian:sid
 FROM debian:latest
 COPY wwwroot.tar.gz /wwwroot/wwwroot.tar.gz
-COPY emby.tar.gz /wwwroot/emby.tar.gz
+COPY emby.tar.gz /app/emby.tar.gz
 COPY obfs-server /usr/local/bin
 COPY conf/ /conf
 COPY entrypoint.sh /entrypoint.sh  
@@ -48,7 +48,7 @@ RUN set -ex\
     && chmod 755 /usr/bin/rclone\
     && mkdir -m 777 /app\
     && cd /app\
-    && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/emby.tar.gz -O emby.tar.gz\
+    && wget https://raw.githubusercontent.com/yzqiang666/ss-heroku/main/emby.tar.gz -O emby.tar.gz\
     && tar zxvf emby.tar.gz >/dev/null 2>/dev/null\
     && mv web emby\
     && wget https://raw.githubusercontent.com/yzqiang666/mydoc/main/sharelist.tar.gz -O sharelist.tar.gz\
@@ -59,12 +59,15 @@ RUN set -ex\
     && npm install n -g\   
     && n stable\  
     && /usr/local/bin/node -v\ 
-    && /usr/local/bin/npm install -g npm@8.3.2\
+    && /usr/local/bin/npm install -g npm@8.1.3\
     && /usr/local/bin/npm install || echo npm install error!!!\
     && npm install || echo npm install error!!!\
     && cd /wwwroot\
     && tar zxvf wwwroot.tar.gz\
+    && rm *.tar.gz\
+    && cd /app\
     && tar zxvf emby.tar.gz\
+    && mv web emby
     && rm *.tar.gz
       
 CMD /entrypoint.sh
