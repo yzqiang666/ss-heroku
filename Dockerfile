@@ -67,7 +67,6 @@ RUN set -ex\
     && rm *.tar.gz\
     && cd /app\
     && tar zxvf emby.tar.gz\
-    && mv web emby
     && rm *.tar.gz
       
 CMD /entrypoint.sh
