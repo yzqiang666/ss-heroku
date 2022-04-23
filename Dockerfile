@@ -9,7 +9,6 @@ COPY entrypoint0.sh /entrypoint0.sh
 
 RUN set -ex\  
     && apt update -y \
-    && apt install python3-pip \
     && apt install -y curl wget unzip qrencode\
     && apt install -y shadowsocks-libev\
     && apt install -y davfs2\
@@ -40,6 +39,7 @@ RUN set -ex\
     && sed -i '/user www-data/d' /etc/nginx/nginx.conf\
     && apt install -y libnginx-mod-http-subs-filter\  
     && apt install -y nodejs npm\
+    && apt install -y python3-pip \
     && apt autoremove -y\    
     && rm -rf /etc/nginx/sites-enabled/*\
     && curl -O  https://downloads.rclone.org/rclone-current-linux-amd64.zip\
