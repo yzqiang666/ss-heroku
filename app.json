@@ -1,0 +1,74 @@
+{
+  "name": "heroku快速部署",
+  "description": "heroku快速部署.",
+  "keywords": ["hero"],
+  "env": {
+     "ENCRYPT": {
+      "description": "加密方式，由于有https加持，选最简单的就可以，默认：rc4-md5,其它的有（aes-256-cfb,chacha20-ietf-poly1305,salsa20,chacha20-ietf等）。",
+      "value": "chacha20-ietf-poly1305"
+    },
+     "PASSWORD": {
+      "description": "的密码，可以使用uuid作为密码（http://www.uuid.online/在线生成）。",
+      "value": "yzqyzq1234"
+    },
+
+    "VER": {
+       "description": "v2ray-plugin版本，默认latest安装最新版本，可以去https://github.com/shadowsocks/v2ray-plugin/releasesV2Ray选择版本 （例如：1.1.0)",
+       "value": "latest"
+     }, 
+
+    "V2_Path": {
+      "description": "Path路径，默认s233,为了安全你也可以使用uuid替换s233，根路径自动加上，此处开头无需加入/。如果开启反代，不要与反代uri重复。",
+      "value": "s233"
+    },
+
+    "PLUGIN": {
+       "description": "插件类型，可填v2ray-plugin或obfs-server。",
+       "value": "v2ray-plugin"
+     }, 
+    
+     "PLUGIN_OPTS": {
+      "description": "插件参数：1. 插件为v2ray-plugin时，填写server;path=/s233等。path=后的/不能省略。 2. 插件为obfs-server时，填写obfs=http;failover=127.0.0.1:81;http-method=websocket等。",
+      "value": "server;path=/s233"
+    },
+
+     "AppName": {
+      "description": "请输入最上方填写的App Name，用于生成配置和二维码，如果不想生成输入no。",
+      "value": "MyAppName",
+      "required": false
+    },
+
+    "QR_Path": {
+       "description": "二维码和配置链接路径，默认qr_img，为了保密性你也可以使用uuid,但是不能与V2_Path相同。如AppName变量为no，此变量没有作用。",
+       "value": "/qr_img"
+     },
+
+     "ProxySite": {
+      "description": "域名用于反代一个网站，例如：www.google.com，不填写表示使用本地静态网页文件。暂时不用。",
+      "value": "http://127.0.0.1:1888",
+      "required": false
+    },
+
+     "NGINX_CONF_URL": {
+      "description": "提供nginx配置文件的下载链接，用于覆盖默认的配置文件，可以为空。",      
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/nginx_33001.conf",
+      "required": false      
+    },
+    
+    "NGINX_SERVER_URL": {
+      "description": "提供conf.d目录下的ss.conf配置的下载链接，用于覆盖默认的配置文件，可以为空。",      
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/ss_33001.conf",
+      "required": false       
+    },
+
+    "ENTRYPOINT_URL": {
+      "description": "提供启动运行脚本文件下载链接，用于覆盖默认的启动脚本，可以为空。",
+      "value": "https://raw.githubusercontent.com/yzqiang666/mydoc/main/entrypoint_33001.sh",
+      "required": false      
+    }
+
+  },
+  "website": "",
+  "repository": "",
+  "stack": "container"
+ }
